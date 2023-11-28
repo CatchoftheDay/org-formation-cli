@@ -26,15 +26,15 @@ jobs:
         run: |
           npm run lint
           npm run test:ci
-      - name: Add Coverage Report
-        if: github.event_name == 'pull_request'
-        id: coverage-report
-        uses: 5monkeys/cobertura-action@v13
-        continue-on-error: true
-        with:
-          path: coverage/cobertura-coverage.xml
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          minimum_coverage: 40
+      # - name: Add Coverage Report
+      #   if: github.event_name == 'pull_request'
+      #   id: coverage-report
+      #   uses: 5monkeys/cobertura-action@v13
+      #   continue-on-error: true
+      #   with:
+      #     path: coverage/cobertura-coverage.xml
+      #     repo_token: ${{ secrets.GITHUB_TOKEN }}
+      #     minimum_coverage: 40
       - name: Upload Artifacts
         id: upload-artifacts
         uses: actions/upload-artifact@v3
